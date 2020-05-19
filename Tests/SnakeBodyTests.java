@@ -1,4 +1,9 @@
 
+import BoardComponents.Cell;
+import BoardComponents.Food.Food;
+import BoardComponents.Snake.Snake;
+import MVC.Helpers.Logic;
+import MVC.Helpers.State;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

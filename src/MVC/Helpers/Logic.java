@@ -1,3 +1,10 @@
+package MVC.Helpers;
+
+import BoardComponents.*;
+import BoardComponents.Board.Board;
+import BoardComponents.Food.Food;
+import BoardComponents.Snake.Snake;
+import BoardComponents.Snake.SnakeChange;
 
 import java.util.LinkedList;
 
@@ -21,38 +28,22 @@ public class Logic {
 
     public boolean moveRight()
     {
-        if (snakeMeetsItself()) return false;
-        snakeEatsApple();
-        SnakeChange.moveSnake(state.getStateBoard(),state.getStateSnake(), 0,1);
-        currentDirection = DIRECTION_RIGHT;
-        return true;
+        return moveSnakeInArbitraryDirection(0, 1, DIRECTION_RIGHT);
     }
 
     public boolean moveLeft()
     {
-        if (snakeMeetsItself()) return false;
-        snakeEatsApple();
-        SnakeChange.moveSnake(state.getStateBoard(),state.getStateSnake(), 0,-1);
-        currentDirection = DIRECTION_LEFT;
-        return true;
+        return moveSnakeInArbitraryDirection(0, -1, DIRECTION_LEFT);
     }
 
     public boolean moveDown()
     {
-        if (snakeMeetsItself()) return false;
-        snakeEatsApple();
-        SnakeChange.moveSnake(state.getStateBoard(),state.getStateSnake(), 1,0);
-        currentDirection = DIRECTION_DOWN;
-        return true;
+        return moveSnakeInArbitraryDirection(1, 0, DIRECTION_DOWN);
     }
 
     public boolean moveUp()
     {
-        if (snakeMeetsItself()) return false;
-        snakeEatsApple();
-        SnakeChange.moveSnake(state.getStateBoard(),state.getStateSnake(), -1,0);
-        currentDirection = DIRECTION_UP;
-        return true;
+        return moveSnakeInArbitraryDirection(-1, 0, DIRECTION_UP);
     }
 
     public Board getBoard()
@@ -66,6 +57,14 @@ public class Logic {
     }
 
     public Food getApple() { return state.getStateApple(); }
+
+    private boolean moveSnakeInArbitraryDirection(int deltaX, int deltaY, int nextDirectionConstant) {
+        if (snakeMeetsItself()) return false;
+        snakeEatsApple();
+        SnakeChange.moveSnake(state.getStateBoard(), state.getStateSnake(), deltaX, deltaY);
+        currentDirection = nextDirectionConstant;
+        return true;
+    }
 
     //Snake/apple relationship.
     private void snakeEatsApple()

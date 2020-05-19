@@ -1,6 +1,9 @@
+package MVC;
 
+import BoardComponents.Board.Board;
+import MVC.Helpers.ModelListener;
 
-//Controller/Middle man between Model and View.
+//MVC.Controller/Middle man between MVC.Model and MVC.View.
 public class Controller implements ModelListener {
     private int timer = 400;
     private Model model;
@@ -36,7 +39,7 @@ public class Controller implements ModelListener {
     //Returns timer of game.
     public int getTimer(){ return this.timer; }
 
-    //Notifies view about changes in Model.
+    //Notifies view about changes in MVC.Model.
     @Override
     public void onChange(Board board) { view.draw(board); }
 

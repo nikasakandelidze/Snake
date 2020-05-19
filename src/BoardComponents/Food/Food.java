@@ -1,7 +1,10 @@
+package BoardComponents.Food;
+
+import BoardComponents.BoardComponent;
 
 import java.awt.*;
 //
-public class Food extends BoardComponent{
+public class Food extends BoardComponent {
     private Color color;
     //Could have different food's needed specifications.
     public Food(int row, int col, Color color) {

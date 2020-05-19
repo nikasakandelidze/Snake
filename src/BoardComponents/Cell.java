@@ -1,6 +1,7 @@
+package BoardComponents;
 
 import java.awt.*;
-//Cell is, "kind ofa", board component.
+//BoardComponents.Cell is, "kind ofa", board component.
 //In our current example it doesn't have additional features but it can.
 public class Cell extends BoardComponent {
     private Color color;

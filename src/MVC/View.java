@@ -1,6 +1,8 @@
+package MVC;
+
+import BoardComponents.Board.Board;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 
 public class View extends JPanel{

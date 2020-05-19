@@ -1,6 +1,12 @@
+package MVC.Helpers;
+
+import BoardComponents.*;
+import BoardComponents.Board.Board;
+import BoardComponents.Food.Apple;
+import BoardComponents.Food.Food;
+import BoardComponents.Snake.Snake;
 
 import java.awt.*;
-import java.util.LinkedList;
 import java.util.Random;
 
 //Represents one snapShotted state of game.

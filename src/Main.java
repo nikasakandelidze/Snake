@@ -1,4 +1,8 @@
 
+import MVC.Controller;
+import MVC.Model;
+import MVC.View;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
@@ -13,10 +17,7 @@ public class Main {
 
     private static void setup()
     {
-        JFrame frame = new JFrame("MySnake");
-        frame.setLayout(new BorderLayout());
-        frame.setSize(700,700);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        JFrame frame = setUpJFrame();
         View view = new View();
         frame.add(view);
         Model model = new Model(15,15);
@@ -25,9 +26,6 @@ public class Main {
         LastDirection.followWay = ()->{controller.moveRight();};
         LastDirection.lastDirection = KeyEvent.VK_RIGHT;
 
-        //All if() statements during listening to key presses
-        //are to not let user press opposite or same direction button
-        //to avoid poor UX.
         frame.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
@@ -72,7 +70,7 @@ public class Main {
             }
         });
 
-        //Engine of Snake game, Ticks in every Controller.getTimer() m.second.
+        //Engine of BoardComponents.Snake.Snake game, Ticks in every MVC.Controller.getTimer() m.second.
         new Thread(()->{
             while(true) {
                 try {
@@ -85,6 +83,14 @@ public class Main {
             }
         }).start();
         frame.setVisible(true);
+    }
+
+    private static JFrame setUpJFrame() {
+        JFrame frame = new JFrame("MySnake");
+        frame.setLayout(new BorderLayout());
+        frame.setSize(700,700);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        return frame;
     }
 
     //Holds data about last direction of snake, before user pressed key.

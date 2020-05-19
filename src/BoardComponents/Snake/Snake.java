@@ -1,9 +1,13 @@
+package BoardComponents.Snake;
+
+import BoardComponents.BoardComponent;
+import BoardComponents.Cell;
 
 import java.awt.*;
 import java.util.LinkedList;
 
-//Snake(specifically snake's head) is a board component.
-public class Snake extends BoardComponent{
+//BoardComponents.Snake.Snake(specifically snake's head) is a board component.
+public class Snake extends BoardComponent {
     private LinkedList<Cell> snakeBody;
     Color color;
 

@@ -1,7 +1,9 @@
+package BoardComponents.Board;
 
+import BoardComponents.Cell;
 
 import java.awt.*;
-//Represents Board of the game.
+//Represents BoardComponents.Board.Board of the game.
 public class Board {
     private Cell[][] board;
     private int numRows;

@@ -1,4 +1,6 @@
 
+import MVC.Helpers.Logic;
+import MVC.Helpers.State;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

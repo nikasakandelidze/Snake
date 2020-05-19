@@ -1,3 +1,6 @@
+package MVC.Helpers;
+
+import BoardComponents.Board.Board;
 
 public interface ModelListener {
     void onChange(Board board);

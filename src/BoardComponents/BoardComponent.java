@@ -1,7 +1,6 @@
+package BoardComponents;
 
-import java.awt.*;
-
-//BoardComponent is everything that'll need x,y in game.
+//BoardComponents.BoardComponent is everything that'll need x,y in game.
 public class BoardComponent {
     private int row;
     private int col;

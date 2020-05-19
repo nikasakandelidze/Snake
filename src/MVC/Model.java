@@ -1,12 +1,17 @@
+package MVC;
 
-import java.awt.*;
+import MVC.Helpers.Logic;
+import MVC.Helpers.ModelListener;
+import MVC.Helpers.SnakeAteAppleListener;
+import MVC.Helpers.State;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Model implements SnakeAteAppleListener{
+public class Model implements SnakeAteAppleListener {
     //All calculations are accumulated in logic object.
-    private  Logic logic;
-    //Controller class obj. is later added in this list.
+    private Logic logic;
+    //MVC.Controller class obj. is later added in this list.
     List<ModelListener> listeners = new ArrayList<>();
 
     public Model(int snakeRow,int snakeCol)
@@ -17,28 +22,26 @@ public class Model implements SnakeAteAppleListener{
 
     public void moveLeft()
     {
-        if(logic.moveLeft())
-            refreshView();
-        else fireGameOver();
+        moveInArbitraryDirection(logic.moveLeft());
     }
 
     public void moveRight()
     {
-        if(logic.moveRight())
-            refreshView();
-        else fireGameOver();
+        moveInArbitraryDirection(logic.moveRight());
     }
 
     public void moveDown()
     {
-        if(logic.moveDown())
-            refreshView();
-        else fireGameOver();
+        moveInArbitraryDirection(logic.moveDown());
     }
 
     public void moveUp()
     {
-        if(logic.moveUp())
+        moveInArbitraryDirection(logic.moveUp());
+    }
+
+    private void moveInArbitraryDirection(boolean succesfullyMoved) {
+        if (succesfullyMoved)
             refreshView();
         else fireGameOver();
     }
@@ -48,7 +51,7 @@ public class Model implements SnakeAteAppleListener{
         listeners.add(listener);
     }
 
-    //Notify Model listeners that model was updated/changed.
+    //Notify MVC.Model listeners that model was updated/changed.
     public void refreshView()
     {
         for(ModelListener listener : listeners)
@@ -57,7 +60,7 @@ public class Model implements SnakeAteAppleListener{
         }
     }
 
-    //Notify Model listeners that game is over.
+    //Notify MVC.Model listeners that game is over.
     public void fireGameOver()
     {
         for(ModelListener listener : listeners)
